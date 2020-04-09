@@ -4,4 +4,8 @@
 # See https://devcenter.heroku.com/articles/buildpack-api#bin-release
 #
 
-echo "--- {}"
+cat <<EOF
+---
+addons:
+  - sqreen
+EOF
