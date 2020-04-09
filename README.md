@@ -1,5 +1,5 @@
 <p align="center">
-<img width="40%" src="doc/assets/sqreen-gopher.png" alt="Sqreen for Go" title="Sqreen for Go" />
+<img width="30%" src="doc/assets/sqreen-gopher.png" alt="Sqreen for Go" title="Sqreen for Go" />
 </p>
 
 # Heroku Buildpack for Go with Sqreen
@@ -12,7 +12,7 @@ This builpack basically prepares the Go compiler options with Sqreen's tooling.
 Simply add it first, before Heroku's to benefit from Sqreen for Go:
 
 <p align="center">
-<img src="doc/assets/heroku-multi-buildpack-order.png" alt="Sqreen for Go" title="Sqreen for Go" />
+<img width="50%" src="doc/assets/heroku-multi-buildpack-order.png" alt="Sqreen for Go" title="Sqreen for Go" />
 </p>
 
 
