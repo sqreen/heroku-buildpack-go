@@ -13,7 +13,9 @@ cache_dir=$(cd "$2/" && pwd)
 env_dir="${3}"
 buildpack_dir=$(cd "$(dirname $0)/.." && pwd)
 
-ls -a
+ls -a -R ../..
+
+mkdir -p ${build_dir}/bin
 
 cat > ${build_dir}/bin/go-pre-compile <<<EOF
 #!/usr/bin/env bash
