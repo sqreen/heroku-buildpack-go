@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
-# bin/detect <build-dir>
+#
+# usage: bin/detect <build-dir>
+# See https://devcenter.heroku.com/articles/buildpack-api#bin-detect
+#
 set -e
 
-# TODO: is it possible to call `heroku/heroku-buildpack-go/bin/detect` instead?
 echo "Sqreen for Go"
 exit 0

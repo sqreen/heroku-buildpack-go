@@ -13,20 +13,28 @@ cache_dir=$(cd "$2/" && pwd)
 env_dir="${3}"
 buildpack_dir=$(cd "$(dirname $0)/.." && pwd)
 
-#ls -a -R ../..
-
 mkdir -p ${build_dir}/bin
 
+# Create the go-pre-compile script called by the heroku's go buildpack before
+# compiling the app. We use it to pre-install our instrumentation tool within
+# the app directoy context so that the Go toolchain does what it takes to find
+# the right version (eg. using the go.mod version entry), download it, compile
+# it, and puts it in the cache directory.
+# See `go help install` for the details.
 cat > ${build_dir}/bin/go-pre-compile <<EOF
 #!/usr/bin/env bash
 set -eo pipefail
+echo "-----> Installing Sqreen's Go Instrumentation Tool"
 env GOFLAGS="" GOBIN="${cache_dir}/bin" \$GOROOT/bin/go install -v github.com/sqreen/go-agent/sdk/sqreen-instrumentation-tool
 EOF
 chmod +x ${build_dir}/bin/go-pre-compile
 
+# Create the export settings of the GOFLAGS env var with the instrumentation
+# tool so that heroku's go buildpack will have it for its compilations.
+# Cf. https://devcenter.heroku.com/articles/buildpack-api#composing-multiple-buildpacks
 cat > ${buildpack_dir}/export <<EOF
 #!/usr/bin/env bash
+echo "-----> Enabling Sqreen's Go Instrumentation through the GOFLAGS env var"
 export GOFLAGS="-v -a -toolexec=${cache_dir}/bin/sqreen-instrumentation-tool"
 EOF
-
 chmod +x ${buildpack_dir}/export
