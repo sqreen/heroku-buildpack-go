@@ -21,7 +21,8 @@ cat > ${build_dir}/bin/go-pre-compile <<<EOF
 #!/usr/bin/env bash
 set -eo pipefail
 set -x
-go install -v github.com/sqreen/go-agent/sdk/sqreen-instrumentation-tool
+env
+$GOROOT/bin/go install -v github.com/sqreen/go-agent/sdk/sqreen-instrumentation-tool
 $GOBIN/sqreen-instrumentation-tool -h
 EOF
 
