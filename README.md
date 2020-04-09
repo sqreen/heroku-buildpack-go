@@ -7,7 +7,7 @@ of [Heroku's official buildpack for Go](https://github.com/heroku/heroku-buildpa
 
 ## Example
 
-Click the following Heroku Button to deploy an Go HTTP server example protected
+Click the following Heroku Button to deploy a Go HTTP server example protected
 by Sqreen. Its source-code can be found in the `example/` directory.
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/sqreen/heroku-buildpack-go)
@@ -22,7 +22,9 @@ by Sqreen. Its source-code can be found in the `example/` directory.
  
 2. Add the Sqreen addon: https://elements.heroku.com/addons/sqreen
 
-3. Add the Sqreen's HTTP middleware for your framework: https://godoc.org/github.com/sqreen/go-agent/sdk/middleware
+3. Add Sqreen's HTTP middleware for your framework: https://godoc.org/github.com/sqreen/go-agent/sdk/middleware
+
+4. Deploy your Go app to Heroku.
 
 Congratulations, your app is now protected by Sqreen!
 
