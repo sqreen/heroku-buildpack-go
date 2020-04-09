@@ -29,7 +29,7 @@ chmod +x ${build_dir}/bin/go-pre-compile
 
 cat > ${buildpack_dir}/export <<EOF
 #!/usr/bin/env bash
-export GOFLAGS="-v -a -toolexec ${cache_dir}/bin/sqreen-instrumentation-tool"
+export GOFLAGS="-v -a -toolexec=${cache_dir}/bin/sqreen-instrumentation-tool"
 EOF
 
 chmod +x ${buildpack_dir}/export
