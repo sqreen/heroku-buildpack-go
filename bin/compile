@@ -34,7 +34,7 @@ chmod +x ${build_dir}/bin/go-pre-compile
 # Cf. https://devcenter.heroku.com/articles/buildpack-api#composing-multiple-buildpacks
 cat > ${buildpack_dir}/export <<EOF
 #!/usr/bin/env bash
-echo "-----> Enabling Sqreen's Go Instrumentation through the GOFLAGS env var"
+echo "-----> Enabling Sqreen's Go Instrumentation via the GOFLAGS env var"
 export GOFLAGS="-v -a -toolexec=${cache_dir}/bin/sqreen-instrumentation-tool"
 EOF
 chmod +x ${buildpack_dir}/export
