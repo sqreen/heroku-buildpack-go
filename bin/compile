@@ -20,10 +20,7 @@ mkdir -p ${build_dir}/bin
 cat > ${build_dir}/bin/go-pre-compile <<EOF
 #!/usr/bin/env bash
 set -eo pipefail
-set -x
-env
 env GOFLAGS="" GOBIN="${cache_dir}/bin" \$GOROOT/bin/go install -v github.com/sqreen/go-agent/sdk/sqreen-instrumentation-tool
-${cache_dir}/bin/sqreen-instrumentation-tool -h
 EOF
 chmod +x ${build_dir}/bin/go-pre-compile
 
