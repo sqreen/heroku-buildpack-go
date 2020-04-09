@@ -13,7 +13,7 @@ cache_dir=$(cd "$2/" && pwd)
 env_dir="${3}"
 buildpack_dir=$(cd "$(dirname $0)/.." && pwd)
 
-ls -a -R ../..
+#ls -a -R ../..
 
 mkdir -p ${build_dir}/bin
 
@@ -22,8 +22,14 @@ cat > ${build_dir}/bin/go-pre-compile <<EOF
 set -eo pipefail
 set -x
 env
-env GOFLAGS="" \$GOROOT/bin/go install -v github.com/sqreen/go-agent/sdk/sqreen-instrumentation-tool
+env GOFLAGS="" GOBIN="${cache_dir}/bin" \$GOROOT/bin/go install -v github.com/sqreen/go-agent/sdk/sqreen-instrumentation-tool
 \$GOBIN/sqreen-instrumentation-tool -h
 EOF
-
 chmod +x ${build_dir}/bin/go-pre-compile
+
+cat > ${buildpack_dir}/export <<EOF
+#!/usr/bin/env bash
+export GOFLAGS="-v -a -toolexec ${cache_dir}/bin/sqreen-instrumentation-tool"
+EOF
+
+chmod +x ${buildpack_dir}/export
