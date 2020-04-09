@@ -1,7 +1,8 @@
 <img align="left" width="80" height="80" src="doc/assets/sqreen-gopher.png" alt="Sqreen Gopher">
+
 # Heroku Buildpack for Go with Sqreen
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/sqreen/go-agent/examples/heroku)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/sqreen/heroku-buildpack-go)
 
 This buildpack automatically enables Sqreen for Go. It is a companion buildpack
 of [Heroku's official Go Buildpack](https://github.com/heroku/heroku-buildpack-go/).

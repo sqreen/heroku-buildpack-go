@@ -1,7 +1,7 @@
 {
   "name": "Hello Sqreen for Go",
   "description": "Example of a Go HTTP server protected by Sqreen",
-  "repository": "https://github.com/sqreen/go-agent",
+  "repository": "https://github.com/sqreen/heroku-buildpack-go",
   "logo": "https://github.com/sqreen/heroku-buildpack-go/raw/master/doc/assets/sqreen-gopher.png",
   "keywords": ["go", "sqreen", "rasp", "waf", "security" ],
   "addons": [
